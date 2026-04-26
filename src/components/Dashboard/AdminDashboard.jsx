@@ -77,16 +77,7 @@ const AdminDashboard = (props) => {
                             >
                                 🎯 Leaves
                             </button>
-                            <button
-                                onClick={() => setActiveTab('penalties')}
-                                className={`px-4 py-2 rounded-lg font-medium transition ${
-                                    activeTab === 'penalties'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                }`}
-                            >
-                                🚨 Penalties
-                            </button>
+                            
                         </div>
 
                         <div className='flex gap-2'>

@@ -32,7 +32,7 @@ const SmartAttendance = () => {
             const isLate = emp.attendance?.some(att => att.isLate === true) || false
             
             monthAttendance[emp.id] = {
-                name: `${emp.firstName} ${emp.lastName}`,
+                name: `${emp.firstName}`,
                 attended: attendedDays,
                 total: daysInMonth,
                 percentage: Math.round(percentage),
@@ -41,12 +41,11 @@ const SmartAttendance = () => {
             }
 
             if (percentage < 75) {
-                warningList.push(`${emp.firstName} ${emp.lastName}: ${Math.round(percentage)}% (Low Attendance)`)
-            }
+warningList.push(`${emp.firstName}: ${Math.round(percentage)}% (Low Attendance)`)            }
 
             if (percentage > bestScore) {
                 bestScore = percentage
-                bestEmp = { name: `${emp.firstName} ${emp.lastName}`, percentage: Math.round(percentage) }
+              bestEmp = { name: `${emp.firstName}`, percentage: Math.round(percentage) }
             }
         })
 
@@ -59,7 +58,7 @@ const SmartAttendance = () => {
         const today = new Date().toISOString().split('T')[0]
         
         const updatedData = userData.map(emp => {
-            if (emp.id === empId) {
+            if (emp.id.toString() === empId) {
                 const existingAtt = emp.attendance || []
                 const alreadyMarked = existingAtt.some(att => att.date === today)
                 
@@ -75,7 +74,7 @@ const SmartAttendance = () => {
 
         setUserData(updatedData)
         localStorage.setItem('employees', JSON.stringify(updatedData))
-        calculateAttendance()
+        
     }
 
     return (

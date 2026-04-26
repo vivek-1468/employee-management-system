@@ -41,7 +41,7 @@ const PerformanceScore = () => {
 
             return {
                 id: emp.id,
-                name: `${emp.firstName} ${emp.lastName}`,
+                name: `${emp.firstName} `,
                 tasks: tasksCompleted,
                 taskPoints,
                 attendance: attendedDays,
